@@ -1,0 +1,22 @@
+#.env keeps secrets local
+.env
+
+# Python virtual environments
+.venv/
+venv/
+
+# Streamlit and Python cache
+streamlit-webrtc-*
+__pycache__/
+*.pyc
+
+# IDE / editor configs
+.vscode/
+.idea/
+
+# Local data or audio captures
+*.wav
+*.mp3
+
+# App session state
+.streamlit/secrets.toml

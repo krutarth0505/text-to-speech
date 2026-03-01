@@ -1,0 +1,9 @@
+streamlit>=1.31,<2.0
+streamlit-webrtc>=0.47
+aiortc>=1.5
+numpy>=1.26
+soundfile>=0.12
+pydub>=0.25
+requests>=2.32
+python-dotenv>=1.0
+sarvamai>=0.1.25
