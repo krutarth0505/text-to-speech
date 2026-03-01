@@ -17,6 +17,28 @@ from sarvam_client import SarvamAPIError, SarvamClient
 
 load_dotenv()
 
+
+def _promote_secrets_to_env() -> None:
+    secret_keys = [
+        "SARVAM_API_KEY",
+        "SARVAM_CHAT_MODEL",
+        "SARVAM_TTS_VOICE",
+        "SARVAM_TTS_LANGUAGE",
+        "SARVAM_TTS_MODEL",
+        "SARVAM_TTS_SAMPLE_RATE",
+        "SARVAM_TTS_TEMPERATURE",
+        "SARVAM_STT_MODEL",
+        "SARVAM_STT_MODE",
+        "SARVAM_STT_LANGUAGE",
+        "SARVAM_BASE_URL",
+    ]
+    for key in secret_keys:
+        if key in st.secrets and not os.getenv(key):
+            os.environ[key] = str(st.secrets[key])
+
+
+_promote_secrets_to_env()
+
 st.set_page_config(page_title="Live Speech Assistant", page_icon="🎙️", layout="wide")
 
 RTC_CONFIG = RTCConfiguration({"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]})
